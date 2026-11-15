@@ -1,0 +1,28 @@
+Shared/
+
+# Python
+__pycache__/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Large ML artifacts (stored in ~/models and ~/data, outside the project)
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.arrow
+*.parquet
+checkpoints/
+wandb/
+runs/
+
+# Syncthing
+.stfolder/
+.stignore
+.stversions/
+*.sync-conflict-*
