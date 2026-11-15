@@ -4,6 +4,7 @@ import hashlib
 import json
 import logging
 import os
+import platform
 
 if platform.system() != "Windows":
     # Import breaks Windows, so don't import it if we're not on windows.
@@ -594,7 +595,13 @@ class Experiment(abc.ABC):
             DATASET_CACHE_PATH, (md5_hash_kwargs(**val_dataset_kwargs) + ".arrow")
         )
         assert val_dataset_path != train_dataset_path
-        if os.path.exists(val_dataset_path):
+        if os.environ.get("VEC2TEXT_SKIP_STANDARD_VAL") == "1":
+            # Only evaluate on the held-out split of the training dataset.
+            # Needed when embeddings were precomputed elsewhere and the
+            # embedder can't be run on the standard val datasets.
+            print("VEC2TEXT_SKIP_STANDARD_VAL=1: skipping standard val datasets")
+            val_datasets_dict = datasets.DatasetDict()
+        elif os.path.exists(val_dataset_path):
             val_datasets_dict = datasets.load_from_disk(val_dataset_path)
             print("loaded dict of val datasets from", val_dataset_path)
         else:
@@ -654,7 +661,9 @@ class InversionExperiment(Experiment):
                 "IMPORTANT: Mocking embedder for the rest of training (to save GPU memory)."
                 " Do not trust embedding-based evaluation metrics."
             )
-            model.embedder.cpu()
+            # A weightless (meta-device) embedder can't be moved; just drop it.
+            if next(model.embedder.parameters()).device.type != "meta":
+                model.embedder.cpu()
             del model.embedder
             model.embedder = MockEmbedder(embedder_dim=model.embedder_dim)
 

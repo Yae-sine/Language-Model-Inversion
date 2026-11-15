@@ -231,16 +231,34 @@ def load_embedder_and_tokenizer(name: str, torch_dtype: str, **kwargs):
             torch_dtype = torch.float16
         elif torch_dtype == "bfloat16":
             torch_dtype = torch.bfloat16
-        model = transformers.AutoModelForCausalLM.from_pretrained(
-            name,
-            **model_kwargs,
-            token=os.environ.get("LLAMA_TOKEN"),
-            torch_dtype=torch_dtype,
-            **kwargs,
-        )
+        if os.environ.get("VEC2TEXT_EMBEDDER_NO_WEIGHTS") == "1":
+            # Build the model skeleton on the meta device: correct config and
+            # class, but no weights in memory and no weight download. Only
+            # valid when the LM outputs are precomputed (frozen embeddings)
+            # and the embedder is mocked out before training (mock_embedder=1).
+            import accelerate
+
+            print(f"VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading {name} without weights")
+            model_config = transformers.AutoConfig.from_pretrained(
+                name, token=os.environ.get("LLAMA_TOKEN")
+            )
+            with accelerate.init_empty_weights():
+                model = transformers.AutoModelForCausalLM.from_config(
+                    model_config, torch_dtype=torch_dtype
+                )
+        else:
+            model = transformers.AutoModelForCausalLM.from_pretrained(
+                name,
+                **model_kwargs,
+                token=os.environ.get("LLAMA_TOKEN"),
+                torch_dtype=torch_dtype,
+                **kwargs,
+            )
         # if torch_dtype is not torch.float32:
         #     model.to_bettertransformer()
-        tokenizer = transformers.AutoTokenizer.from_pretrained(name)
+        tokenizer = transformers.AutoTokenizer.from_pretrained(
+            name, token=os.environ.get("LLAMA_TOKEN")
+        )
         tokenizer.pad_token = tokenizer.eos_token
     elif name.startswith("sentence-transformers/"):
         model = SentenceTransformer(name)

@@ -21,6 +21,7 @@ DATASET_NAMES = [
     "msmarco",
     "one_million_instructions",
     "one_million_paired_instructions",
+    "dolly",  # precomputed Llama-2 vectors, loaded via VEC2TEXT_TRAIN_DATASET_PATH
 ]
 
 

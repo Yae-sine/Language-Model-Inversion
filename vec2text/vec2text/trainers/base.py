@@ -490,7 +490,8 @@ class BaseTrainer(transformers.Trainer):
                     "emb_top1_equal_sem": sem(emb_topk_equal),
                 }
 
-        except (TypeError, RuntimeError):
+        except (TypeError, RuntimeError, AttributeError):
+            # AttributeError: embedder was replaced by MockEmbedder (mock_embedder=1)
             sim_result = {"emb_cos_sim": 0, "emb_cos_sim_sem": 0}
 
         # Store stuff for access later.
