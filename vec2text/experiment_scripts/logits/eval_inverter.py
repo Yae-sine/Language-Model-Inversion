@@ -80,10 +80,17 @@ def load_state(source: str):
     return config, state
 
 
+MODEL_CLASSES = {
+    "inversion_from_logits": "InversionFromLogitsModel",
+    "inversion_from_logits_emb": "InversionFromLogitsEmbModel",
+}
+
+
 def load_model(source: str, device: str):
     config, state = load_state(source)
-    arch = config.architectures[0]
-    model = getattr(vec2text.models, arch)(config)
+    # InversionConfig.__init__ ends with PretrainedConfig.__init__(), which resets
+    # `architectures` to None, so pick the class from the experiment name.
+    model = getattr(vec2text.models, MODEL_CLASSES[config.experiment])(config)
     missing, unexpected = model.load_state_dict(state, strict=False)
     # T5's embedding matrix is stored once; its tied aliases show up as missing.
     tied = ("shared.weight", "embed_tokens.weight", "lm_head.weight")
