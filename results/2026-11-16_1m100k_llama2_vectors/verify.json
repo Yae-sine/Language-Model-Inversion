@@ -1,0 +1,26 @@
+{
+ "teammate_file_nonfinite_rows": 0,
+ "teammate_file_rows": 15011,
+ "teammate_batching_bs4": {
+  "nonfinite_rows_teammate": 0,
+  "nonfinite_rows_new": 0,
+  "rows_compared": 400,
+  "kl_mean": 0.00208074095527813,
+  "kl_max": 0.05421560528742509,
+  "top1_agreement": 0.9925,
+  "top20_max_abs_diff_mean": 0.21416714519262314,
+  "top20_max_abs_diff_max": 0.9491071701049805,
+  "logsumexp_max_abs": 6.67052801004474e-07
+ },
+ "pipeline_batching_bs32_sorted": {
+  "nonfinite_rows_teammate": 0,
+  "nonfinite_rows_new": 0,
+  "rows_compared": 400,
+  "kl_mean": 0.0031747668748926274,
+  "kl_max": 0.06577394533324513,
+  "top1_agreement": 0.9925,
+  "top20_max_abs_diff_mean": 0.24760996878147126,
+  "top20_max_abs_diff_max": 0.9935033321380615,
+  "logsumexp_max_abs": 6.080751791836286e-07
+ }
+}

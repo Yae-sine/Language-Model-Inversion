@@ -1,0 +1,22 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.96s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.15s/it]
+shard 1/2: 50500 prompts, 1579 batches
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794851149.215675     597 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+shard 1/2: 3200/50500 prompts, 24.7/s, ETA 31.9 min, recomputed alone: 0
+shard 1/2: 6400/50500 prompts, 26.4/s, ETA 27.9 min, recomputed alone: 0
+shard 1/2: 9600/50500 prompts, 27.5/s, ETA 24.8 min, recomputed alone: 0
+shard 1/2: 12800/50500 prompts, 28.6/s, ETA 21.9 min, recomputed alone: 0
+shard 1/2: 16000/50500 prompts, 30.0/s, ETA 19.2 min, recomputed alone: 0
+shard 1/2: 19200/50500 prompts, 31.4/s, ETA 16.6 min, recomputed alone: 0
+shard 1/2: 22400/50500 prompts, 32.9/s, ETA 14.2 min, recomputed alone: 0
+shard 1/2: 25600/50500 prompts, 34.5/s, ETA 12.0 min, recomputed alone: 0
+shard 1/2: 28800/50500 prompts, 36.2/s, ETA 10.0 min, recomputed alone: 0
+shard 1/2: 32000/50500 prompts, 38.0/s, ETA 8.1 min, recomputed alone: 0
+shard 1/2: 35200/50500 prompts, 39.8/s, ETA 6.4 min, recomputed alone: 0
+shard 1/2: 38400/50500 prompts, 41.7/s, ETA 4.8 min, recomputed alone: 0
+shard 1/2: 41600/50500 prompts, 43.4/s, ETA 3.4 min, recomputed alone: 0
+shard 1/2: 44800/50500 prompts, 45.2/s, ETA 2.1 min, recomputed alone: 0
+shard 1/2: 48000/50500 prompts, 47.0/s, ETA 0.9 min, recomputed alone: 0
+shard 1/2: 50500/50500 prompts, 48.5/s, ETA 0.0 min, recomputed alone: 0
+shard 1/2: done in 17.4 min; 0 rows recomputed alone, 0 still not finite

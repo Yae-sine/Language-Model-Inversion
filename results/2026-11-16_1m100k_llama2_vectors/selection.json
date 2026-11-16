@@ -1,0 +1,34 @@
+{
+ "total": 2332040,
+ "sources_total": {
+  "lamini": 1826928,
+  "gpt4_teacher": 88933,
+  "t0": 80427,
+  "super_natural_instructions": 77840,
+  "self_instruct": 77840,
+  "alpaca": 51280,
+  "arxiv_math": 50488,
+  "evol_code": 41090,
+  "evol": 26530,
+  "dolly": 10684
+ },
+ "exclude_list_size": 14779,
+ "dropped": {
+  "duplicate": 330548,
+  "dolly": 1625,
+  "has_system_prompt": 61964,
+  "empty": 130
+ },
+ "candidates": 1937773,
+ "too_long_seen": 8181,
+ "selected": 101000,
+ "sources_selected": {
+  "lamini": 85829,
+  "super_natural_instructions": 4143,
+  "t0": 3805,
+  "arxiv_math": 2809,
+  "evol_code": 2085,
+  "evol": 1355,
+  "gpt4_teacher": 974
+ }
+}
