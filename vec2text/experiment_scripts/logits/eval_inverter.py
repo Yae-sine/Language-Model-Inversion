@@ -166,11 +166,15 @@ def main():
     p.add_argument("--out_dir", required=True)
     p.add_argument("--batch_size", type=int, default=32)
     p.add_argument("--n_examples", type=int, default=20)
+    p.add_argument("--limit", type=int, default=None,
+                   help="evaluate only the first N examples (quick tests)")
     args = p.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     os.makedirs(args.out_dir, exist_ok=True)
     raw = datasets.load_from_disk(args.dataset_dir)[args.split]
+    if args.limit:
+        raw = raw.select(range(min(args.limit, len(raw))))
     plain = raw.with_format(None)
     data = {
         "frozen_embeddings": raw.with_format("torch", columns=["frozen_embeddings"]),

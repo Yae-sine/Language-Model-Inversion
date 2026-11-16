@@ -1,0 +1,10 @@
+model,decoding,eval_loss,BLEU,BLEU_sem,token_F1,exact_%,ROUGE
+ours_ep6,greedy,2.368,19.8,0.83,46.7,3.1,41.9
+ours_ep6,greedy_norep3,2.368,19.9,0.83,46.4,3.1,42.2
+ours_ep6,beam4_norep3,2.368,20.66,0.86,46.9,3.4,43.0
+ours_ep40,greedy,3.724,22.53,0.91,49.1,4.1,44.9
+ours_ep40,greedy_norep3,3.724,22.52,0.91,49.0,4.1,45.0
+ours_ep40,beam4_norep3,3.724,23.22,0.91,49.7,4.1,45.8
+authors,greedy,1.395,56.1,1.5,73.5,41.0,71.6
+authors,greedy_norep3,1.395,56.06,1.5,73.4,40.8,71.7
+authors,beam4_norep3,1.395,57.52,1.5,74.6,42.6,73.1

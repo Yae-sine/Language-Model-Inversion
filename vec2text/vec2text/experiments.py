@@ -92,6 +92,15 @@ class Experiment(abc.ABC):
     ):
         # Interactions between args handled here:
         training_args.metric_for_best_model = f"{data_args.dataset_name}_loss"
+        # VEC2TEXT_BEST_METRIC=bleu_score (or token_set_f1, ...) keeps the
+        # checkpoint with the best generation metric instead of the lowest loss;
+        # eval loss keeps rising long after BLEU stops improving.
+        best_metric = os.environ.get("VEC2TEXT_BEST_METRIC")
+        if best_metric:
+            training_args.metric_for_best_model = (
+                f"{data_args.dataset_name}_{best_metric}"
+            )
+            training_args.greater_is_better = not best_metric.endswith("loss")
 
         logger.info(
             "Save checkpoints according to metric_for_best_model %s:",

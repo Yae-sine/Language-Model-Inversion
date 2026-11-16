@@ -1,0 +1,179 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794839129.366266     201 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+validation: 737 examples
+
+Downloading builder script: 0.00B [00:00, ?B/s]
+Downloading builder script: 8.15kB [00:00, 13.0MB/s]
+
+Downloading builder script: 0.00B [00:00, ?B/s]
+Downloading builder script: 6.14kB [00:00, 15.1MB/s]
+
+=== ours_ep6: /kaggle/input/notebooks/yassineaboulhaj/vec2text-dolly-llama2-t5base/saves/t5base_llama7b_dolly/checkpoint-2628
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=19.8049  token_set_f1=0.4669  exact_match=0.0312  rouge_score=0.4192  (28.0s)
+  greedy_norep3  bleu_score=19.8958  token_set_f1=0.4640  exact_match=0.0312  rouge_score=0.4224  (29.0s)
+  beam4_norep3   bleu_score=20.6638  token_set_f1=0.4695  exact_match=0.0339  rouge_score=0.4300  (52.9s)
+
+=== ours_ep40: /kaggle/input/notebooks/yassineaboulhaj/vec2text-dolly-llama2-t5base/saves/t5base_llama7b_dolly/checkpoint-17520
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=22.5324  token_set_f1=0.4910  exact_match=0.0407  rouge_score=0.4488  (27.2s)
+  greedy_norep3  bleu_score=22.5179  token_set_f1=0.4901  exact_match=0.0407  rouge_score=0.4497  (31.6s)
+  beam4_norep3   bleu_score=23.2212  token_set_f1=0.4968  exact_match=0.0407  rouge_score=0.4576  (62.9s)
+
+=== authors: jxm/t5-base__llama-7b__one-million-instructions__emb
+jxm/t5-base__llama-7b__one-million-instructions__emb: downloading 7 of 89 shards (skipping the LM weights)
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=56.1024  token_set_f1=0.7355  exact_match=0.4098  rouge_score=0.7163  (27.9s)
+  greedy_norep3  bleu_score=56.0606  token_set_f1=0.7338  exact_match=0.4084  rouge_score=0.7167  (31.5s)
+  beam4_norep3   bleu_score=57.5233  token_set_f1=0.7457  exact_match=0.4261  rouge_score=0.7313  (62.2s)
+
+=== Summary (validation, n=737)
+model        decoding         loss   bleu_score token_set_f1  exact_match  rouge_score
+ours_ep6     greedy          2.368      19.8049       0.4669       0.0312       0.4192
+ours_ep6     greedy_norep3   2.368      19.8958       0.4640       0.0312       0.4224
+ours_ep6     beam4_norep3    2.368      20.6638       0.4695       0.0339       0.4300
+ours_ep40    greedy          3.724      22.5324       0.4910       0.0407       0.4488
+ours_ep40    greedy_norep3   3.724      22.5179       0.4901       0.0407       0.4497
+ours_ep40    beam4_norep3    3.724      23.2212       0.4968       0.0407       0.4576
+authors      greedy          1.395      56.1024       0.7355       0.4098       0.7163
+authors      greedy_norep3   1.395      56.0606       0.7338       0.4084       0.7167
+authors      beam4_norep3    1.395      57.5233       0.7457       0.4261       0.7313
+
+=== First 25 examples (beam4_norep3)
+
+[true]     Can you own a car in a state with an out of state driver license?
+[ours_ep6] Can I drive a car in the United States?
+[ours_ep40] Can someone drive a car on the highway?
+[authors] Can you own a car in the state of Michigan without a permit?
+
+[true]     Which of these games are traditionally considered to be board games, and which are card games? Monopoly, Trivial Pursuit, Poker, Snap, Chess, Backgammon, Bridge and Scrabble.
+[ours_ep6] Classify each of the following as either a football team or a basketball team: Seattle Mariners, Seattle Seahawks, San Francisco 49ers, Oakland Raiders.
+[ours_ep40] Which of the following sports involve rackets: karate, snooker, tai boxing, soccer.
+[authors] Which of these are board games and which are card games: Baccarat, Monopoly, Scrabble, Bingo, Saxony, Anglicanism?
+
+[true]     What is India famous for?
+[ours_ep6] What is India famous for?
+[ours_ep40] What is India known for?
+[authors] What is India famous for?
+
+[true]     Classify each of the following as either a stringed instrument or a percussion instrument: violin, guitar, drums, congas, bongos, bass guitar.
+[ours_ep6] Classify each of the following as either a metal or a woodwind instrument: harpsichord, trombone, percussion, saxophone, guitar.
+[ours_ep40] Classify each of the following instruments as either brass or woodwind instruments: flute, clarinet, oboe, trumpet, and tuba.
+[authors] Classify each of the following musical instruments as either string or percussion: violin, cello, trumpet, saxophone, viola.
+
+[true]     Which of the following cast members have names that start with the letters A, B or P?
+[ours_ep6] Which of the following characters belong to DC or Marvel Universe?
+[ours_ep40] Which of the following are recurring characters from the TV show "Game of Thrones"?
+[authors] Which of the following characters are nameless and have a name that starts with the letter A?
+
+[true]     Create a beginner-intermediate push-pull-legs workout routine that I can do 6 times a week.
+[ours_ep6] Give me a list of exercises I can do to improve my stamina.
+[ours_ep40] Provide step by step instructions on how to make a Long Island Ice Tea.
+[authors] Create a 7-minute full body workout routine in Python for combination of upper and lower body.
+
+[true]     Give me a few recipes you could make with bread, butter, eggs, and cheese where I have a stovetop, toaster, and a frying pan.
+[ours_ep6] Give me a list of different ways I can cook eggs.
+[ours_ep40] Give me a bulleted list of ingredients that I need to bake chewy chocolate chip cookies.
+[authors] Give me a list of kitchen tools I can use to make a grilled cheese sandwich, with the following ingredients: eggs, bacon, and butter.
+
+[true]     Categorize the companies based on their ownership status as private or public. Twitter, SpaceX, Tesla
+[ours_ep6] Classify the companies based on the industry they are in. Tesla, Tesla Motors, Tesla Inc.
+[ours_ep40] Classify the below companies based on their industry sector. Google, BNP Paribas, Tesla, Amazon, Deloitte, KPMG, Ernst & Young
+[authors] Categorize the companies based on their ownership status. Tesla, Amazon, Tesla
+
+[true]     Ways to use Pencil other than writing
+[ours_ep6] Write a poem about drawing
+[ours_ep40] Print out some important points about digitizing paper
+[authors] Ways to use Pencil other than writing
+
+[true]     Identify which instrument is string or percussion: Snare drum, Zither
+[ours_ep6] Identify which instrument is string or percussion: Axelophone, Bassoon
+[ours_ep40] Identify which instrument is string or percussion: Wood block, Bass clarinet
+[authors] Identify which instrument is string or percussion: Banjo, Flute
+
+[true]     Write a story about a dark and scary night.
+[ours_ep6] Write a short story about a boy who finds a monster in the woods.
+[ours_ep40] Write a story with the theme "Be wise when you speak."
+[authors] Write a story about a dark, scary night.
+
+[true]     What awards does someone need to be an EGOT winner?
+[ours_ep6] What is the Grammy Award for Best Picture?
+[ours_ep40] What is an Emmy Award and how many awards does it receive?
+[authors] What awards does someone need to be an EGOT winner?
+
+[true]     Why is the forum in Rome named the forum?
+[ours_ep6] Why is the city of Rome called Rome?
+[ours_ep40] Why is the Piazza di Pieta called the Vatican City?
+[authors] Why was the Forum called the square of Rome?
+
+[true]     Write a diary entry for a dog that only likes one person that lives in the house on a day that their favorite person was gone all day.
+[ours_ep6] Give me a list of things to do in the morning.
+[ours_ep40] Write a story about a little girl that saves her neighbors home from a bee infestation.
+[authors] Write a dialog about a person who had a dog on their birthday and told their mom that they would get it every day.
+
+[true]     What is the database?
+[ours_ep6] What is a data warehouse?
+[ours_ep40] What is the website?
+[authors] What is the database?
+
+[true]     Provide a comma separated list of all the universities listed in this passage
+[ours_ep6] Extract the names of all universities in the following text and list them using bullets in the format University - Department
+[ours_ep40] List all the educational institutions mentioned in the text in the format Institute name - Year of graduation
+[authors] Provide a list of all the universities mentioned in the linked list
+
+[true]     How Many Players are there in a Football Team?
+[ours_ep6] How many players are in Football?
+[ours_ep40] How many players are in a football team?
+[authors] How Many Players are there in a Football Team?
+
+[true]     Provide key stats about Venus in a bulleted list including days to orbit the sun, mean temperature, number of moons orbiting the planet, and primary element in its atmosphere
+[ours_ep6] Classify each of the following as either a metal or a solid
+[ours_ep40] Provide a bulleted list of the 7 most common structural features of the solar system, as well as their contribution to the overall system design
+[authors] Create a list of 5 elements that are commonly found in the Sun, including but not limited to the number of carbon atoms, surface area, and ionization percentage of the Sun's atmosphere
+
+[true]     What is Cadoo?
+[ours_ep6] What is Xilisoft?
+[ours_ep40] What is HiFI?
+[authors] What is Coinbase?
+
+[true]     From the passage provided, which runways are used in the West Plan?
+[ours_ep6] Based on the following passage, which of the following aircrafts will operate in the North Atlantic?
+[ours_ep40] From the passage provided, which of the following directions are intended to travel across the length of the Suez Canal?
+[authors] From the passage provided, which runways are used for direct flights?
+
+[true]     Change the following to past tense
+[ours_ep6] Tell me whether these words are verbs or nouns
+[ours_ep40] Change these sentences to past tense
+[authors] Change this sentence to past tense
+
+[true]     Classify each of the following as either a true statement or a false statement: 1. Albert Einstein was a Chinese mathematician that lived in the 19th and 20th century. 2. Pigs are not mammals. 3. This question contains four statements that need classification.
+[ours_ep6] Classify each of the following as either a star or a planet: Pluto, Mars, Jupiter, Saturn, Pluto, Pluto
+[ours_ep40] Which of the following numbers are prime? 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16.
+[authors] There are three statements in the paragraph. Each statement is a fact. Therefore, all of them are statements.
+
+[true]     What are the three best commuter trains in California?
+[ours_ep6] What are the top 5 cities in the United States?
+[ours_ep40] What are the three busiest commuter rail stations in the San Francisco Bay Area?
+[authors] What are the three best commuter trains in California?
+
+[true]     write a story about the first contact of Alien would be
+[ours_ep6] think up a bunch of ideas for a ninja turtle
+[ours_ep40] Write a story about a little neurodiverse boy with amazing gifts
+[authors] Write a dialogue about an alien encounter with Earth and make it
+
+[true]     What is an apple?
+[ours_ep6] What is a plant?
+[ours_ep40] What is a apple?
+[authors] What is an apple?
+I1116 14:43:28.093000 201 torch/_dynamo/eval_frame.py:701] TorchDynamo attempted to trace the following frames: [
+I1116 14:43:28.093000 201 torch/_dynamo/eval_frame.py:701] 
+I1116 14:43:28.093000 201 torch/_dynamo/eval_frame.py:701] ]
+I1116 14:43:28.096000 201 torch/_dynamo/utils.py:910] TorchDynamo compilation metrics:
+I1116 14:43:28.096000 201 torch/_dynamo/utils.py:910] Function    Runtimes (s)
+I1116 14:43:28.096000 201 torch/_dynamo/utils.py:910] ----------  --------------
