@@ -1,0 +1,172 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794894626.004534   10646 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+validation: 1010 examples
+
+=== best_1m: /kaggle/working/saves/t5base_llama7b_1m100k
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=25.3766  token_set_f1=0.5304  exact_match=0.0079  rouge_score=0.4675  (46.1s)
+  greedy_norep3  bleu_score=25.4987  token_set_f1=0.5282  exact_match=0.0079  rouge_score=0.4718  (53.1s)
+  beam4_norep3   bleu_score=25.8105  token_set_f1=0.5293  exact_match=0.0069  rouge_score=0.4756  (113.2s)
+
+=== final_1m: /kaggle/working/saves/t5base_llama7b_1m100k/checkpoint-30000
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=24.9593  token_set_f1=0.5190  exact_match=0.0099  rouge_score=0.4572  (46.2s)
+  greedy_norep3  bleu_score=25.1828  token_set_f1=0.5180  exact_match=0.0099  rouge_score=0.4622  (53.0s)
+  beam4_norep3   bleu_score=26.0120  token_set_f1=0.5275  exact_match=0.0109  rouge_score=0.4744  (113.9s)
+
+=== dolly_ep40: /kaggle/input/notebooks/yassineaboulhaj/vec2text-dolly-llama2-t5base/saves/t5base_llama7b_dolly/checkpoint-17520
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=4.4146  token_set_f1=0.2302  exact_match=0.0000  rouge_score=0.1865  (47.3s)
+  greedy_norep3  bleu_score=4.4460  token_set_f1=0.2298  exact_match=0.0000  rouge_score=0.1879  (52.5s)
+  beam4_norep3   bleu_score=4.6153  token_set_f1=0.2361  exact_match=0.0000  rouge_score=0.1969  (112.3s)
+
+=== Summary (validation, n=1010)
+model        decoding         loss   bleu_score token_set_f1  exact_match  rouge_score
+best_1m      greedy          1.629      25.3766       0.5304       0.0079       0.4675
+best_1m      greedy_norep3   1.629      25.4987       0.5282       0.0079       0.4718
+best_1m      beam4_norep3    1.629      25.8105       0.5293       0.0069       0.4756
+final_1m     greedy          1.617      24.9593       0.5190       0.0099       0.4572
+final_1m     greedy_norep3   1.617      25.1828       0.5180       0.0099       0.4622
+final_1m     beam4_norep3    1.617      26.0120       0.5275       0.0109       0.4744
+dolly_ep40   greedy          6.084       4.4146       0.2302       0.0000       0.1865
+dolly_ep40   greedy_norep3   6.084       4.4460       0.2298       0.0000       0.1879
+dolly_ep40   beam4_norep3    6.084       4.6153       0.2361       0.0000       0.1969
+
+=== First 25 examples (beam4_norep3)
+
+[true]     According to recent data, the population of New York City is 8.336 million people. Is the claim "New York City has a population of less than 5 million people" true, false, or inconclusive?
+[best_1m] The population of New York City is approximately 8.3 million. Based on the previous passage, is it true that "New York City has a high population."? Yes or no?
+[final_1m] The population of New York City is approximately 8.3 million. Based on that information, is the claim: "New York City has the highest population." true, false, or inconclusive?
+[dolly_ep40] Based on this paragraph, what is the "0" in percentage?
+
+[true]     The cat was lying by the mouse hole waiting for the mouse , but it was too impatient. Question: Who or what is "it"? Is it the mouse? Answer:
+[best_1m] The cat knocked over the vase and it shattered. Question: Who or what is "it"? Is it the cat? Answer:
+[final_1m] The cat sat on the mat. It was hungry. Question: Who or what is "it"? Is it the cat? Answer:
+[dolly_ep40] Is the following statement true or false: The being is a beetle, not a cat?
+
+[true]     List some of the most influential 1995 novels and their impact on modern literature.
+[best_1m] List some of the most popular novels of the 21st century and their themes.
+[final_1m] List some of the most influential 19th-century novels and their impact on literature.
+[dolly_ep40] List some of the most popular science fiction books of all time.
+
+[true]     I found this movie to be confusing and hard to understand. Did anyone else have trouble following the plot? This is definitely not a
+[best_1m] The acting in this movie was terrible. The plot was predictable and the acting was mediocre at best. I would not recommend this to anyone. This is definitely not a
+[final_1m] This movie was a complete waste of time. The acting was terrible, the plot was predictable, and the acting was mediocre. I would not recommend this to anyone. This is definitely not a
+[dolly_ep40] What is the plot of the movie
+
+[true]     Analyze the given natural language text and summarize the sentiment it carries: "I am very disappointed with this product."
+[best_1m] Given a sentence, classify the sentiment of the sentence into positive, negative or mixed: "This product is terrible. I would not recommend it to anyone."
+[final_1m] Classify the sentiment of the given text into positive, negative or mixed: "This product is a complete waste of money."
+[dolly_ep40] Extract the factors that influence the price of a good. List the results in comma separated format.
+
+[true]     List ten examples of renewable energy sources.
+[best_1m] List five renewable energy sources.
+[final_1m] List five examples of renewable energy sources.
+[dolly_ep40] List different types of renewable energy resources.
+
+[true]     A: I got lost on the way to the museum. B: That's too bad. A: But, I don't think we missed anything important. Question: they missed something important at the museum True, False, or Neither?
+[best_1m] The students cheered loudly because they were excited to see the new exhibit. Question: Did the students cheer loudly? True, False, or Neither?
+[final_1m] Sentence 1: They went to the park to play soccer, but they didn't get a chance to play with their friends. Instruction: The kids were excited to play in the park. Question: Did the kids enjoy playing soccer? True, False, or Neither?
+[dolly_ep40] Based on this passage, what is the correct answer to "Nnedi"?
+
+[true]     The following movie review expresses what sentiment? the cast comes through even when the movie doesn't .
+[best_1m] Give me a possible correct answer to the question "what is the movie about?" The sentiment expressed for the movie is
+[final_1m] What sentiment does the following movie review express for the movie? it's a heartwarming story that will keep you on the edge of your seat until the very end.
+[dolly_ep40] what is the movie Gladiator about?
+
+[true]     Sentence: Abdulsalami Abubakar was in office whilst Mike Akhigbe, who was in the Nigerian Navy, was Vice President. What data can be extracted from this sentence?
+[best_1m] Sentence: Alaa Abdul-Zahra was the head of the Ministry of Defence. What data can be extracted from this sentence?
+[final_1m] Sentence: Alaa Abdul-Zahra was a member of the Iraqi Armed Forces. What data can be extracted from this sentence?
+[dolly_ep40] Given a reference text about a Chief Minister of State, what is his position in the Ministry of Public Health?
+
+[true]     Generate an approximately fifteen-word sentence that describes all this data: Whig Party (United States), leader, Daniel Webster
+[best_1m] Generate an approximately fifteen-word sentence that describes all this data: Abraham Lincoln, party, Republican Party
+[final_1m] Generate an approximately fifteen-word sentence that describes all this data: Abraham Lincoln, party, Republican Party of the United States
+[dolly_ep40] Extract the person who was the President of the State of New Hampshire
+
+[true]     Develop a program to count the number of items of a given list list = [43, 87, 21, 65]
+[best_1m] Given a list of numbers, write a function to find the largest number in the list. myList = [1, 2, 3, 4, 5]
+[final_1m] Given a list of numbers, find the average of all the numbers in the list. list_nums = [1, 2, 3, 4, 5]
+[dolly_ep40] Classify each of the numbers as prime or composite - 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16.
+
+[true]     What should be the subject line for this email? Weekly update on Project X
+[best_1m] Write an email with the following subject: Update on Project Status
+[final_1m] Write an email with the following subject: Project Status Update
+[dolly_ep40] Help me come up with a cost efficient and timely solution for my project
+
+[true]     Can you explain the different types of Indian classical music?
+[best_1m] Can you explain the different types of syllables used in Indian classical music?
+[final_1m] Can you explain the different genres of Indian classical music?
+[dolly_ep40] Can you tell me about different types of music genres?
+
+[true]     Here is some data about a restaurant: name = The Rice Boat, eatType = restaurant, food = English, area = city centre. Write a sentence that includes the following data about a restaurant
+[best_1m] Here is some data about a restaurant: name = The Waterman, eatType = restaurant, food = Fast food, priceRange = moderate, customer rating = 1 out of 5, area = city centre, familyFriendly = yes. Write a sentence that includes the following data about an eat
+[final_1m] Here is some data about a restaurant: name = Loch Fyne, eatType = restaurant, food = Chinese, priceRange = less than £20, customer rating = low, area = riverside, familyFriendly = yes. Write a sentence that includes the following information about 
+[dolly_ep40] Extract the name of the restaurant in the centre of the city of Mumbai and list them using bullets in the format Name (Standard name)
+
+[true]     Given the fact that: The more current, the stronger the electromagnet. Answer the question: Milo is playing with his electromagnet and he decides to increase the current supplied to it. What will happen to the strength of the electromagnet increase or decrease?
+[best_1m] Given the fact that: The more energy a device has, the stronger its resistance will be. Answer the question: Will the speed of an object increase or decrease if it has more energy?
+[final_1m] Given the fact that: The more energy a person has, the greater their potential energy. Answer the question: Will the potential energy of a light bulb increase or decrease?
+[dolly_ep40] From the passage provided, extract the reason why the robot has been moved to another location. Put them in a freezer and separate them with a comma.
+
+[true]     Write down the solution for this math problem: Solve 0 = -681*x + 664*x - 119 for x.
+[best_1m] Write down the solution for this math problem: Solve 0 = -4*p - 0*p for p.
+[final_1m] Write down the solution for this math problem: Solve 0 = -3*r - 0*r for r.
+[dolly_ep40] Extract the reason why the 2nd generation of computers did not have a central console.
+
+[true]     Does the word "play" have the same meaning in these two sentences? Yes, No? My son loves to play with blocks. We are going to see a play at the theatre tonight.
+[best_1m] Does the word "book" have the same meaning in these two sentences? Yes, No? I need to book a flight to New York City. The book is on the table.
+[final_1m] The word "play" has multiple meanings. Does it have the same meaning in sentences 1 and 2? Yes or no? Sentence 1: Play a game of chess with your friends at the park. Sentences 2: I like to play in the park with my friends.
+[dolly_ep40] I'm about to have my second child under the age of 4. Which of these should I be aware of: the playground, the pool, the beach, the ocean, the lake, the mountains, the playground
+
+[true]     What is bidifferential graded algebra?
+[best_1m] What is binomial bifurcation?
+[final_1m] What is binomial bifurcation?
+[dolly_ep40] What is the linear distribution?
+
+[true]     Data: history of the bagratids GEORGIAN_NAME    ; history of the bagratids DATE 11th century What would a sentence about this data be like?
+[best_1m] Azerbaijan, language, Turkish language What would a sentence about this data be like?
+[final_1m] Data: Azerbaijan ETHNIC_GROUP YAZO-KAZAK What would a sentence about this data be like?
+[dolly_ep40] Given a reference text about "Ghouli", tell me what it is and how it is used.
+
+[true]     Create a sentence using this data: City: San Francisco; Population: 883,305; Area: 46.9 square miles.
+[best_1m] Generate a sentence that describes the following data: Madison County, Wisconsin, areaTotal, 78.8 (square kilometres).
+[final_1m] Generate a sentence that describes the following data: Anderson, Indiana, isPartOf, Anderson Township, Madison County, Indiana.
+[dolly_ep40] What is the population of Fairfax county in Virginia.
+
+[true]     What is a shorter version of this: new indian government expressed monday its readiness to assist in the rehabilitation , reconstruction and humanitarian work in sri lanka .
+[best_1m] What is a shorter version of this: the iranian government on tuesday issued a statement expressing concern over a proposal to increase the number of refugees in the country .
+[final_1m] What is a shorter version of this: sri lanka 's foreign minister said wednesday that the u.s. government is considering implementing a new anti-discrimination policy in the country .
+[dolly_ep40] what was the first step towards rapatria
+
+[true]     Given The restaurant received a health code violation for improperly storing food at the wrong temperature. Is it guaranteed true that "The restaurant is not in compliance with health code regulations."? Yes or no?
+[best_1m] Given The restaurant received a negative review from a food critic. Is it guaranteed true that "The restaurant is located in the city center."? Yes or no?
+[final_1m] Given The restaurant received a 0 out of 5 rating from a food critic. Is it guaranteed true that "The restaurant is under warranty."? Yes or no?
+[dolly_ep40] Given this paragraph about McDonalds, what is the advertised rate at the restaurant?
+
+[true]     What are the social, economic, and political consequences of famines, and how do they differ across different regions and demographics? Answer in 10 words.
+[best_1m] What are the major causes of hunger in the world? Provide examples.
+[final_1m] What are the main causes and effects of the COVID-19 pandemic? Provide a brief overview.
+[dolly_ep40] Explain the difference of position against the Western Bloc among the Soviet leaders cited in the text.
+
+[true]     Recommend some exercises that can help improve posture.
+[best_1m] Suggest some exercises to improve flexibility.
+[final_1m] Suggest some exercises for improving posture and reducing back pain.
+[dolly_ep40] Please describe the benefits of riding the bus to work instead of driving a car.
+
+[true]     Can you give me a brief explanation of the water cycle?
+[best_1m] Can you explain the concept of water cycle?
+[final_1m] Can you explain the concept of water cycle?
+[dolly_ep40] Can you please describe the water cycle?
+I1117 06:06:39.620000 10646 torch/_dynamo/eval_frame.py:701] TorchDynamo attempted to trace the following frames: [
+I1117 06:06:39.620000 10646 torch/_dynamo/eval_frame.py:701] 
+I1117 06:06:39.620000 10646 torch/_dynamo/eval_frame.py:701] ]
+I1117 06:06:39.623000 10646 torch/_dynamo/utils.py:910] TorchDynamo compilation metrics:
+I1117 06:06:39.623000 10646 torch/_dynamo/utils.py:910] Function    Runtimes (s)
+I1117 06:06:39.623000 10646 torch/_dynamo/utils.py:910] ----------  --------------

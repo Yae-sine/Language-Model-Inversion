@@ -1,0 +1,172 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794895608.126108   19774 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+validation: 737 examples
+
+=== best_1m: /kaggle/working/saves/t5base_llama7b_1m100k
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=14.3970  token_set_f1=0.4009  exact_match=0.0204  rouge_score=0.3613  (32.4s)
+  greedy_norep3  bleu_score=14.4245  token_set_f1=0.3994  exact_match=0.0204  rouge_score=0.3624  (34.7s)
+  beam4_norep3   bleu_score=14.9189  token_set_f1=0.4035  exact_match=0.0271  rouge_score=0.3669  (69.1s)
+
+=== final_1m: /kaggle/working/saves/t5base_llama7b_1m100k/checkpoint-30000
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=13.7973  token_set_f1=0.3945  exact_match=0.0190  rouge_score=0.3551  (30.6s)
+  greedy_norep3  bleu_score=13.8654  token_set_f1=0.3940  exact_match=0.0190  rouge_score=0.3574  (33.4s)
+  beam4_norep3   bleu_score=13.9229  token_set_f1=0.3962  exact_match=0.0163  rouge_score=0.3578  (68.9s)
+
+=== dolly_ep40: /kaggle/input/notebooks/yassineaboulhaj/vec2text-dolly-llama2-t5base/saves/t5base_llama7b_dolly/checkpoint-17520
+VEC2TEXT_EMBEDDER_NO_WEIGHTS=1: loading meta-llama/Llama-2-7b-hf without weights
+Set zero-except-top-K value = None
+Mapped tokenizer meta-llama/Llama-2-7b-hf to t5-base. Preserved 35.7% of unique tokens.
+  greedy         bleu_score=22.5324  token_set_f1=0.4910  exact_match=0.0407  rouge_score=0.4492  (29.2s)
+  greedy_norep3  bleu_score=22.5179  token_set_f1=0.4901  exact_match=0.0407  rouge_score=0.4500  (33.6s)
+  beam4_norep3   bleu_score=23.2212  token_set_f1=0.4968  exact_match=0.0407  rouge_score=0.4582  (65.3s)
+
+=== Summary (validation, n=737)
+model        decoding         loss   bleu_score token_set_f1  exact_match  rouge_score
+best_1m      greedy          2.868      14.3970       0.4009       0.0204       0.3613
+best_1m      greedy_norep3   2.868      14.4245       0.3994       0.0204       0.3624
+best_1m      beam4_norep3    2.868      14.9189       0.4035       0.0271       0.3669
+final_1m     greedy          2.852      13.7973       0.3945       0.0190       0.3551
+final_1m     greedy_norep3   2.852      13.8654       0.3940       0.0190       0.3574
+final_1m     beam4_norep3    2.852      13.9229       0.3962       0.0163       0.3578
+dolly_ep40   greedy          3.724      22.5324       0.4910       0.0407       0.4492
+dolly_ep40   greedy_norep3   3.724      22.5179       0.4901       0.0407       0.4500
+dolly_ep40   beam4_norep3    3.724      23.2212       0.4968       0.0407       0.4582
+
+=== First 25 examples (beam4_norep3)
+
+[true]     Can you own a car in a state with an out of state driver license?
+[best_1m] Can I get a driver's license in Texas?
+[final_1m] Can I legally drive without a license?
+[dolly_ep40] Can someone drive a car on the highway?
+
+[true]     Which of these games are traditionally considered to be board games, and which are card games? Monopoly, Trivial Pursuit, Poker, Snap, Chess, Backgammon, Bridge and Scrabble.
+[best_1m] What are the common characters in the game of chess? List them in alphabetical order.
+[final_1m] List five different types of coins that can be used to buy coins from the Euro.
+[dolly_ep40] Which of the following sports involve rackets: karate, snooker, tai boxing, soccer.
+
+[true]     What is India famous for?
+[best_1m] What is the most important country in India?
+[final_1m] What is the most famous Indian culture?
+[dolly_ep40] What is India known for?
+
+[true]     Classify each of the following as either a stringed instrument or a percussion instrument: violin, guitar, drums, congas, bongos, bass guitar.
+[best_1m] Describe the different types of strings used in a harpsichore.
+[final_1m] Classify the following musical instruments into one of the following: violins, pianos, and guitars: a, b, c, d, e, or c.
+[dolly_ep40] Classify each of the following instruments as either brass or woodwind instruments: flute, clarinet, oboe, trumpet, and tuba.
+
+[true]     Which of the following cast members have names that start with the letters A, B or P?
+[best_1m] Which character in the TV show ‘The Big Bang Theory’ has a cat as the main character?
+[final_1m] Which two characters in the TV show ‘Friends’ have a chemistry between them?
+[dolly_ep40] Which of the following are recurring characters from the TV show "Game of Thrones"?
+
+[true]     Create a beginner-intermediate push-pull-legs workout routine that I can do 6 times a week.
+[best_1m] Create a 5-week workout plan for someone looking to build muscle.
+[final_1m] Create a workout plan for a beginner with only 10 minutes left.
+[dolly_ep40] Provide step by step instructions on how to make a Long Island Ice Tea.
+
+[true]     Give me a few recipes you could make with bread, butter, eggs, and cheese where I have a stovetop, toaster, and a frying pan.
+[best_1m] Give me a list of ingredients needed to make a sandwich.
+[final_1m] Give me a list of ingredients needed to make a sandwich.
+[dolly_ep40] Give me a bulleted list of ingredients that I need to bake chewy chocolate chip cookies.
+
+[true]     Categorize the companies based on their ownership status as private or public. Twitter, SpaceX, Tesla
+[best_1m] Identify the most prominent companies in the following list: Tesla, Tesla, Alphabet, Tesla
+[final_1m] What are the most important words in the following sentence: Tesla, Tesla, Facebook, Tesla
+[dolly_ep40] Classify the below companies based on their industry sector. Google, BNP Paribas, Tesla, Amazon, Deloitte, KPMG, Ernst & Young
+
+[true]     Ways to use Pencil other than writing
+[best_1m] Add punctuation to the following sentence: How to write a letter on paper
+[final_1m] Add punctuation to the following sentence: Instructions for writing a paper
+[dolly_ep40] Print out some important points about digitizing paper
+
+[true]     Identify which instrument is string or percussion: Snare drum, Zither
+[best_1m] Generate an approximately fifteen-word sentence that describes all this data: Strada viola, type, Baroque
+[final_1m] Generate an approximately fifteen-word sentence that describes all this data: Bassaridae, instrument, Bassoon
+[dolly_ep40] Identify which instrument is string or percussion: Wood block, Bass clarinet
+
+[true]     Write a story about a dark and scary night.
+[best_1m] Write a short story about a pirate ship.
+[final_1m] Write a short story about a mysterious box.
+[dolly_ep40] Write a story with the theme "Be wise when you speak."
+
+[true]     What awards does someone need to be an EGOT winner?
+[best_1m] How many Grammy Awards are there for a nominee?
+[final_1m] What are the milestones to achieve as a Grammy Award winner?
+[dolly_ep40] What is an Emmy Award and how many awards does it receive?
+
+[true]     Why is the forum in Rome named the forum?
+[best_1m] Why did Rome become a city?
+[final_1m] Why was Rome built as a city?
+[dolly_ep40] Why is the Piazza di Pieta called the Vatican City?
+
+[true]     Write a diary entry for a dog that only likes one person that lives in the house on a day that their favorite person was gone all day.
+[best_1m] Write a dialog where a person tells a story about a day in the life of a dog.
+[final_1m] Write a short story about a person who wakes up in the morning and finds out that he has a cold.
+[dolly_ep40] Write a story about a little girl that saves her neighbors home from a bee infestation.
+
+[true]     What is the database?
+[best_1m] What is the AIDA database?
+[final_1m] What is the CMS?
+[dolly_ep40] What is the website?
+
+[true]     Provide a comma separated list of all the universities listed in this passage
+[best_1m] Please add punctuation to this: List of academic journals and their publications
+[final_1m] Please add punctuation to this: List all the books mentioned in the article
+[dolly_ep40] List all the educational institutions mentioned in the text in the format Institute name - Year of graduation
+
+[true]     How Many Players are there in a Football Team?
+[best_1m] How many players are on a football team?
+[final_1m] How many players are on a soccer team?
+[dolly_ep40] How many players are in a football team?
+
+[true]     Provide key stats about Venus in a bulleted list including days to orbit the sun, mean temperature, number of moons orbiting the planet, and primary element in its atmosphere
+[best_1m] Provide a list of the top 10 most common gases in the atmosphere
+[final_1m] Provide a list of the top 10 most important minerals in the Earth's atmosphere
+[dolly_ep40] Provide a bulleted list of the 7 most common structural features of the solar system, as well as their contribution to the overall system design
+
+[true]     What is Cadoo?
+[best_1m] What is Avatar?
+[final_1m] What is Nutcracker?
+[dolly_ep40] What is HiFI?
+
+[true]     From the passage provided, which runways are used in the West Plan?
+[best_1m] Which of the following sections of the city of Tokyo are in continuous flow?
+[final_1m] Which of the following sections of a train schedule are operated by the Southern Railway?
+[dolly_ep40] From the passage provided, which of the following directions are intended to travel across the length of the Suez Canal?
+
+[true]     Change the following to past tense
+[best_1m] Rewrite the following sentences in a grammatically correct way: “I am going to the store”
+[final_1m] Convert the following sentence from passive voice to active voice
+[dolly_ep40] Change these sentences to past tense
+
+[true]     Classify each of the following as either a true statement or a false statement: 1. Albert Einstein was a Chinese mathematician that lived in the 19th and 20th century. 2. Pigs are not mammals. 3. This question contains four statements that need classification.
+[best_1m] Determine if the following two sentences are paraphrases of each other or not. Sent 1: The pyramids are made of marbles and have a height of 8 meters. Sentences: The three pyramids have four floors and are made up of granite and marbles.
+[final_1m] Determine if the following two sentences paraphrase each other or not. Sent 1: The sun rises in the east and sets in the west. Sentences 2: The earth is the third planet from the sun.
+[dolly_ep40] Which of the following numbers are prime? 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16.
+
+[true]     What are the three best commuter trains in California?
+[best_1m] What are the three most popular commuter routes in California?
+[final_1m] What are the top three most popular public transportation options in California?
+[dolly_ep40] What are the three busiest commuter rail stations in the San Francisco Bay Area?
+
+[true]     write a story about the first contact of Alien would be
+[best_1m] Generate a correctly punctuated version of the following text: The movie is a thrilling adventure that will keep you on the edge of your seat until the very end.
+[final_1m] Generate a correctly punctuated version of the following text: This is a story about a group of explorers who find a way back to the ancient world and discover a new world that seems to have never existed before . The sentiment expressed for the movie is
+[dolly_ep40] Write a story about a little neurodiverse boy with amazing gifts
+
+[true]     What is an apple?
+[best_1m] What is a fruit?
+[final_1m] What is a fruit?
+[dolly_ep40] What is a apple?
+I1117 06:14:12.834000 19774 torch/_dynamo/eval_frame.py:701] TorchDynamo attempted to trace the following frames: [
+I1117 06:14:12.834000 19774 torch/_dynamo/eval_frame.py:701] 
+I1117 06:14:12.834000 19774 torch/_dynamo/eval_frame.py:701] ]
+I1117 06:14:12.838000 19774 torch/_dynamo/utils.py:910] TorchDynamo compilation metrics:
+I1117 06:14:12.838000 19774 torch/_dynamo/utils.py:910] Function    Runtimes (s)
+I1117 06:14:12.838000 19774 torch/_dynamo/utils.py:910] ----------  --------------
